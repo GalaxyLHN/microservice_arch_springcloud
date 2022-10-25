@@ -2,11 +2,15 @@ spring:
   application:
     name: registry
   cloud:
+    # config:
+    #   uri: http://${CONFIG_HOST:localhost}:${CONFIG_PORT:8888}
+    #   fail-fast: false
+    #   username: user
+    #   password: ${CONFIG_PASS:dev}
+    nacos:
     config:
-      uri: http://${CONFIG_HOST:localhost}:${CONFIG_PORT:8888}
-      fail-fast: false
-      username: user
-      password: ${CONFIG_PASS:dev}
+      server-addr: ${CONFIG_HOST:localhost}:${CONFIG_PORT:8848}
+      file-extension: yaml
 
 eureka:
   instance:

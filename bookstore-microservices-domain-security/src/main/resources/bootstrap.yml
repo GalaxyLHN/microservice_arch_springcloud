@@ -2,8 +2,12 @@ spring:
   application:
     name: security
   cloud:
+    # config:
+    #   uri: http://${CONFIG_HOST:localhost}:${CONFIG_PORT:8888}
+    #   fail-fast: true
+    #   password: ${CONFIG_PASS:dev}
+    #   username: user
+    nacos:
     config:
-      uri: http://${CONFIG_HOST:localhost}:${CONFIG_PORT:8888}
-      fail-fast: true
-      password: ${CONFIG_PASS:dev}
-      username: user
+      server-addr: ${CONFIG_HOST:localhost}:${CONFIG_PORT:8848}
+      file-extension: yaml
