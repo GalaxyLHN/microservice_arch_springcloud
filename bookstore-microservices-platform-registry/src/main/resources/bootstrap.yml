@@ -8,9 +8,9 @@ spring:
     #   username: user
     #   password: ${CONFIG_PASS:dev}
     nacos:
-    config:
-      server-addr: ${CONFIG_HOST:localhost}:${CONFIG_PORT:8848}
-      file-extension: yaml
+      config:
+        server-addr: ${CONFIG_HOST:localhost}:${CONFIG_PORT:8848}
+        file-extension: yaml
 
 eureka:
   instance:
