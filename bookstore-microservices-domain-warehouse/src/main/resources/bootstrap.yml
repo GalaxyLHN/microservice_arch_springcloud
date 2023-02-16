@@ -8,6 +8,6 @@ spring:
     #   password: ${CONFIG_PASS:dev}
     #   username: user
     nacos:
-    config:
-      server-addr: ${CONFIG_HOST:localhost}:${CONFIG_PORT:8848}
-      file-extension: yaml
+      config:
+        server-addr: ${CONFIG_HOST:localhost}:${CONFIG_PORT:8848}
+        file-extension: yaml
