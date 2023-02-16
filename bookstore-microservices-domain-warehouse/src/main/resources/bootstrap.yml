@@ -11,3 +11,5 @@ spring:
       config:
         server-addr: ${CONFIG_HOST:localhost}:${CONFIG_PORT:8848}
         file-extension: yaml
+      discovery:
+        server-addr: ${CONFIG_HOST:localhost}:${CONFIG_PORT:8848}

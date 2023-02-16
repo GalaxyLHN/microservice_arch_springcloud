@@ -6,3 +6,49 @@
 
 2023-02-16 16:56:03,301 ERROR [UPDATE-DOMAIN] Exception while taking item from LinkedBlockingDeque.
 
+2023-02-16 19:36:10,657 ERROR [UPDATE-DOMAIN] Exception while taking item from LinkedBlockingDeque.
+
+2023-02-16 19:48:05,247 INFO DEFAULT_GROUP@@gateway {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [172.28.0.5:8080:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2023-02-16 19:48:05,250 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@gateway, ips: 172.28.0.5:8080_true,
+
+2023-02-16 19:48:47,314 INFO DEFAULT_GROUP@@account {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [172.28.0.5:61052:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2023-02-16 19:48:47,314 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@account, ips: 172.28.0.5:61052_true,
+
+2023-02-16 19:49:32,449 INFO DEFAULT_GROUP@@payment {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [172.28.0.5:61498:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2023-02-16 19:49:32,449 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@payment, ips: 172.28.0.5:61498_true,
+
+2023-02-16 19:50:25,263 INFO DEFAULT_GROUP@@security {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [172.28.0.5:8301:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2023-02-16 19:50:25,264 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@security, ips: 172.28.0.5:8301_true,
+
+2023-02-16 19:51:00,937 INFO DEFAULT_GROUP@@warehouse {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [172.28.0.5:54337:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2023-02-16 19:51:00,937 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@warehouse, ips: 172.28.0.5:54337_true,
+
+2023-02-16 19:59:42,995 INFO DEFAULT_GROUP@@warehouse {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [172.28.0.5:60100:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2023-02-16 19:59:42,995 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@warehouse, ips: 172.28.0.5:60100_true,172.28.0.5:54337_true,
+
+2023-02-16 20:02:11,994 INFO {POS} {IP-DISABLED} valid: 172.28.0.5:60100@DEFAULT@DEFAULT_GROUP@@warehouse, region: unknown, msg: client timeout after 15000, last beat: 1676548913329
+
+2023-02-16 20:02:27,215 INFO DEFAULT_GROUP@@warehouse {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [172.28.0.5:60100:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2023-02-16 20:02:27,215 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@warehouse, ips: 172.28.0.5:54337_true,
+
+2023-02-16 20:07:02,630 INFO {POS} {IP-DISABLED} valid: 172.28.0.5:54337@DEFAULT@DEFAULT_GROUP@@warehouse, region: unknown, msg: client timeout after 15000, last beat: 1676549203012
+
+2023-02-16 20:07:09,090 INFO DEFAULT_GROUP@@warehouse {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [172.28.0.5:63438:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2023-02-16 20:07:09,090 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@warehouse, ips: 172.28.0.5:63438_true,172.28.0.5:54337_false,
+
+2023-02-16 20:07:17,665 INFO DEFAULT_GROUP@@warehouse {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [172.28.0.5:54337:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2023-02-16 20:07:17,665 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@warehouse, ips: 172.28.0.5:63438_true,
+
+2023-02-16 20:07:47,930 INFO DEFAULT_GROUP@@warehouse {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [172.28.0.5:63541:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2023-02-16 20:07:47,930 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@warehouse, ips: 172.28.0.5:63438_true,172.28.0.5:63541_true,
+
