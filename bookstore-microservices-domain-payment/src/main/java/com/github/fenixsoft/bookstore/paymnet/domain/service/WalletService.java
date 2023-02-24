@@ -49,13 +49,44 @@ public class WalletService {
     public void decrease(Integer accountId, Double amount) {
         Wallet wallet = repository.findByAccountId(accountId)
                 .orElseGet(() -> repository.save(new Wallet(accountId, 0D)));
-        if (wallet.getMoney() > amount) {
-            wallet.setMoney(wallet.getMoney() - amount);
-            repository.save(wallet);
-            log.info("支付成功。用户余额：{}，本次消费：{}", wallet.getMoney(), amount);
+        // 让 discount 直接参与资金变动
+        Double total = amount;
+        Double[] discounts = wallet.getDiscounts();
+        if (discounts.length == 0) {
+            // 没有优惠券
+            if (wallet.getMoney() > total) {
+                wallet.setMoney(wallet.getMoney() - total);
+                repository.save(wallet);
+                log.info("支付成功。用户余额：{}，本次消费：{}，未使用优惠券。", wallet.getMoney(), total);
+            } else {
+                throw new RuntimeException("用户余额不足以支付，请先充值。");
+            }
         } else {
-            throw new RuntimeException("用户余额不足以支付，请先充值");
+            // 选最高且低于总价的优惠券结算
+            Integer dIndex = 0;
+            for (Integer i = new Integer(0); i < discounts.length; i++) {
+                if (discounts[i] <= amount && discounts[i] > discounts[dIndex]) {
+                    dIndex = i;
+                }
+            }
+            Double discount = discounts[dIndex];
+            total = amount - discount;
+            if (wallet.getMoney() > total) {
+                wallet.setMoney(wallet.getMoney() - total);
+                repository.save(wallet);
+
+                // 计算新的优惠券集
+                Double[] newDiscounts = new Double[discounts.length - 1];
+                System.arraycopy(discounts, 0, newDiscounts, 0, dIndex);
+                System.arraycopy(discounts, dIndex + 1, newDiscounts, dIndex, discounts.length - dIndex - 1);
+                wallet.setDiscounts(newDiscounts);
+
+                log.info("支付成功。用户余额：{}，本次消费：{}，使用优惠券减免了：{}。", wallet.getMoney(), total, discount);
+            } else {
+                throw new RuntimeException("用户余额不足以支付，请先充值。");
+            }
         }
+
     }
 
     /**
@@ -78,5 +109,20 @@ public class WalletService {
      * 从冻结资金中移动指定数量至正常状态
      */
     public void thawed(Integer accountId, Double amount) {
+    }
+
+    /**
+     * 账户优惠券添加
+     * 获得新优惠券
+     */
+    // 没有前端的原因：前端大概不想让我修改
+    public void addDiscount(Integer accountId, Double amount) {
+        Wallet wallet = repository.findByAccountId(accountId)
+                .orElseGet(() -> repository.save(new Wallet(accountId, 0D)));
+        Double[] discounts = wallet.getDiscounts();
+        Double[] newDiscounts = new Double[discounts.length - 1];
+        System.arraycopy(discounts, 0, newDiscounts, 0, discounts.length);
+        newDiscounts[discounts.length] = amount;
+        wallet.setDiscounts(newDiscounts);
     }
 }

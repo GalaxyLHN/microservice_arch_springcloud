@@ -51,6 +51,7 @@ public class Wallet extends BaseEntity {
     private Integer accountId;
 
     // 在钱包的模型中添加优惠券及其get、set方法，使其真正被拥有
+    // 数据库的实现在WalletRepository黑盒中
     private Double[] discounts;
 
     public Double getMoney() {
