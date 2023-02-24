@@ -71,7 +71,11 @@ public class PaymentService {
         Double total = bill.getItems().stream().mapToDouble(i -> {
             stockpileService.frozen(i.getProductId(), i.getAmount());
             return bill.productMap.get(i.getProductId()).getPrice() * i.getAmount();
-        }).sum() + 12;   // 12元固定运费，客户端写死的，这里陪着演一下，避免总价对不上
+        }).sum() + 12 - bill.getDiscount().getAmount();   // 12元固定运费，客户端写死的，这里陪着演一下，避免总价对不上
+        // 使用优惠券，减去优惠额度，并确保总金额不小于0
+        if(total < 0){
+            total = 0.0;
+        }
         Payment payment = new Payment(total, DEFAULT_PRODUCT_FROZEN_EXPIRES);
         paymentRepository.save(payment);
         // 将支付单存入缓存
@@ -106,6 +110,7 @@ public class PaymentService {
      * 客户取消支付单，此时应当立即释放处于冻结状态的库存
      * 由于支付单的存储中应该保存而未持久化的购物明细（在Settlement中），所以这步就不做处理了，等2分钟后在触发器中释放
      */
+
     public void cancel(String payId) {
         synchronized (payId.intern()) {
             Payment payment = paymentRepository.getByPayId(payId);
@@ -180,5 +185,7 @@ public class PaymentService {
             }
         });
     }
+
+    // TODO 花费和退还优惠券
 
 }

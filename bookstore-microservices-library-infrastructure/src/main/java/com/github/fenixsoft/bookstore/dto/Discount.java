@@ -4,13 +4,13 @@ public class Discount {
 
     // 这不是必填项，所以不填也不应该有提示
     // 表示抵扣的金额
-    private double amount;
+    private Double amount;
 
-    public double getAmount() {
+    public Double getAmount() {
         return amount;
     }
 
-    public void setAmount(double amount) {
+    public void setAmount(Double amount) {
         this.amount = amount;
     }
 
