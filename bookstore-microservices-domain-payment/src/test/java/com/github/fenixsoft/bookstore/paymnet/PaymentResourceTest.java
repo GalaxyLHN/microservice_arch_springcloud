@@ -1,6 +1,5 @@
 package com.github.fenixsoft.bookstore.paymnet;
 
-import com.github.fenixsoft.bookstore.dto.Discount;
 import com.github.fenixsoft.bookstore.dto.Item;
 import com.github.fenixsoft.bookstore.dto.Purchase;
 import com.github.fenixsoft.bookstore.dto.Settlement;
@@ -24,8 +23,6 @@ class PaymentResourceTest extends JAXRSResourceBase {
         Settlement settlement = new Settlement();
         Item item = new Item();
         Purchase purchase = new Purchase();
-        // 在测试中引入 Discount
-        Discount discount = new Discount();
         settlement.setItems(Collections.singletonList(item));
         settlement.setPurchase(purchase);
         item.setAmount(2);
@@ -34,8 +31,6 @@ class PaymentResourceTest extends JAXRSResourceBase {
         purchase.setName("icyfenix");
         purchase.setPay("wechat");
         purchase.setTelephone("18888888888");
-        // 在测试中也为 discount 赋值
-       discount.setAmount(1.14);
         return settlement;
     }
 
