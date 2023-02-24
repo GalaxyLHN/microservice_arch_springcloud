@@ -50,6 +50,9 @@ public class Wallet extends BaseEntity {
 
     private Integer accountId;
 
+    // 在钱包的模型中添加优惠券及其get、set方法，使其真正被拥有
+    private Double[] discounts;
+
     public Double getMoney() {
         return money;
     }
@@ -64,5 +67,13 @@ public class Wallet extends BaseEntity {
 
     public void setAccountId(Integer accountId) {
         this.accountId = accountId;
+    }
+
+    public Double[] getDiscounts() {
+        return discounts;
+    }
+
+    public void setDiscounts(Double[] discounts) {
+        this.discounts = discounts;
     }
 }
