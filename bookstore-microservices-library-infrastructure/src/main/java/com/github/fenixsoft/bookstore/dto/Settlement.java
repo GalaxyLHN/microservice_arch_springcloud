@@ -42,6 +42,9 @@ public class Settlement {
     @NotNull(message = "结算单中缺少配送信息")
     private Purchase purchase;
 
+    // 增加Discount与get、set方法
+    private Discount discount;
+
     /**
      * 购物清单中的商品信息
      * 基于安全原因（避免篡改价格），改信息不会取客户端的，需在服务端根据商品ID再查询出来
@@ -64,7 +67,12 @@ public class Settlement {
         this.purchase = purchase;
     }
 
+    public Discount getDiscount() {
+        return discount;
+    }
 
-
+    public void setDiscount(Discount discount) {
+        this.discount = discount;
+    }
 
 }
