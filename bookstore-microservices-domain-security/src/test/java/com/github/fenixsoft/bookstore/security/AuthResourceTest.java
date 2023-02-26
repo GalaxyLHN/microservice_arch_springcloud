@@ -2,7 +2,6 @@ package com.github.fenixsoft.bookstore.security;
 
 import com.github.fenixsoft.bookstore.resource.JAXRSResourceBase;
 import org.json.JSONException;
-import org.json.JSONObject;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

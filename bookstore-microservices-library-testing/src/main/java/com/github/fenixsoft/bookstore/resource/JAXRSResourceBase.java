@@ -1,24 +1,16 @@
 package com.github.fenixsoft.bookstore.resource;
 
-import com.github.fenixsoft.bookstore.domain.account.Account;
-import com.github.fenixsoft.bookstore.domain.security.AuthenticAccount;
-import com.github.fenixsoft.bookstore.infrastructure.security.JWTAccessToken;
-import com.github.fenixsoft.bookstore.infrastructure.security.JWTAccessTokenService;
 import org.glassfish.jersey.client.HttpUrlConnectorProvider;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.security.oauth2.common.DefaultOAuth2AccessToken;
-
-import javax.inject.Inject;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.*;
 import java.util.function.Supplier;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -36,9 +28,6 @@ public class JAXRSResourceBase extends DBRollbackBase {
 
     @Value("${local.server.port}")
     protected int port;
-
-    @Inject
-    private JWTAccessToken jwtAccessToken;
 
     private String accessToken = null;
 
